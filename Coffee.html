@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="coffee.png">
+    <title>Coffee Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"><!--linking swiper css-->
+    <link rel="stylesheet" href="coffee.css">
+    <!--Body Section-->
+
+<body>
+    <header>
+        <nav class="navbar section-content">
+            <a href="#" class="nav-logo">
+                <img src="Cup.png" class="logo" alt="Coffee Logo">
+                <h2 class="logo-text">Coffee</h2>
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fas fa-times"></button>
+                <li class="nav-item">
+                    <a href="#Home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#About" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#Menu" class="nav-link">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#Testimonials" class="nav-link">Testimonials</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Blog.html" target="_blank" class="nav-link">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#Products" class="nav-link">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a href="Log.html" target="_blank" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <button id="menu-open-button" class="fas fa-bars"></button>
+
+            <!---   <span class="brand-name"></span>
+                            <i class="fas fa-search"></i>
+                            <i class="fas fa-shopping-cart"></i>
+                            <div class="search-form">
+                                <input type="search" id="search-box" placeholder="search here...">
+                                <label for="search-box" class="fas fa-search"></label>
+                            </div>
+                            <div class="cart-items-container">
+                                <div class="cart-item">
+                                    <span class="fas fa-times"></span>
+                                    <img src="bean.jpg"  alt="">
+                                    <div class="content">
+                                        <h3>Cart item 01</h3>
+                                        <div class="price">$15.99</div>
+                                    </div>
+                                </div>
+                                <div class="cart-item">
+                                    <span class="fas fa-times"></span>
+                                    <img src="bean2.jpg" alt="">
+                                    <div class="content">
+                                    <h3>Cart item 02</h3>
+                                    <div class="price">$15.99</div>
+                                    </div>
+                                </div>
+                                <div class="cart-item">
+                                    <span class="fas fa-times"></span>
+                                    <img src="bean3.jpg" alt="">
+                                    <div class="content">
+                                        <h3>Cart item 03</h3>
+                                        <div class="price">$15.99</div>
+                                    </div>
+                                </div>
+                                    <div class="cart-item">
+                                    <span class="fas fa-times"></span>
+                                    <img src="bean4.jpg" alt="">
+                                    <div class="content">
+                                        <h3>Cart item 04</h3>
+                                        <div class="price">$15.99</div>
+                                    </div>
+                                </div> 
+                            <a href="#" class="btn">Checkout Now</a>
+                            </div>-->
+        </nav>
+    </header>
+    <div class="canva">
+        <div class="video-C">
+            <video src="video.mp4" autoplay loop muted></video>
+        </div>
+    </div>
+    <!--HERO SECTION-->
+    <section class="hero-section">
+        <div class="section-content" id="Home">
+            <div class="hero-details">
+                <h2 class="section-title ">Home section</h2>
+                <h2 class="title">Best Coffee</h2>
+                <h3 class="subtitle">Make your day with our special coffee!</h3>
+                <p class="description"><strong>Fall in love with every sip of our cappuccino — a warm blend of bold
+                        espresso, creamy milk, and soft foam that feels like a gentle kiss. It’s not just coffee, it’s a
+                        feeling — cozy mornings, long talks, and heartwarming moments captured in one perfect
+                        cup.</strong></p>
+
+                <div class="buttons">
+                    <a href="order.html" target="_blank" class=" button order-now">Order Now</a>
+                    <a href="LOGIN.html" target="_blank" class=" button contact-us">Contact Us</a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="coffee2.png " alt="Hero" class="hero-image">
+            </div>
+    </section>
+    <!--About Section-->
+    <section class="about-section">
+        <div class="section-content" id="About">
+            <div class="about-image-wrapper">
+                <img src="coffee.jpg" alt="About" class="about-image">
+            </div>
+            <div class="about-details">
+                <h2 class="section-title">About Us</h2>
+                <p class="text">At Coffee House in Bendorf,Germany,we pride ourselves on being a go-to destination for
+                    coffee lovers and converston seekers alike.We're dedicated to providing an exceptional coffee
+                    experiences in a cozy and inviting atmosphere,where guests can relax,unwind,and enjoy their time in
+                    comfort.</p>
+                <div class="social-link-list">
+                    <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Menu section-->
+    <section class="menu-section" id="Menu">
+        <h2 class="section-title">Our Menu</h2>
+        <div class="section-content">
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <img src="hot-beverages.png" alt="Hot Beverages" class="menu-iamge"><br>
+                    <h3 class="name">Hot Beverages</h3>
+                    <p class="text"><b>"Every sip of this coffee tastes like the comfort of your arms-strong deep,and
+                            unforgettable."</b>.</p>
+                </li>
+                <li class="menu-item">
+                    <img src="coffee3.png" alt="Cold Beverages" class="menu-iamge">
+                    <h3 class="name">Cold Beverages</h3>
+                    <p class="text"><b>"Cold on the lips,but it warms the soul-Just like your love that touches me
+                            softly from afar."</b>.</p>
+                </li>
+                <li class="menu-item">
+                    <img src="refreshment.png" alt="Refreshment" class="menu-iamge">
+                    <div class="menu-details">
+                        <h3 class="name">Refreshment</h3>
+                        <p class="text"><b>"Feel the cool rush of refreshment,carrying with it the gentle warmth of
+                                shared moments."</b></p>
+                    </div>
+                </li>
+                <li class="menu-item">
+                    <img src="idli1.png" alt="Special Combos" class="menu-iamge" height="250px">
+                    <div class="menu-details"><br>
+                        <h3 class="name">Special Combos</h3>
+                        <p class="text"><b>"Soft,warm idlis and crispy dosas-a perfect harmony of flavours,just like two
+                                hearts in love".</b></p>
+                    </div>
+                </li>
+                <li class="menu-item">
+                    <img src="desserts.png" alt="Dessert" class="menu-iamge">
+                    <div class="menu-details">
+                        <h3 class="name">Dessert</h3>
+                        <p class="text"><b>"Every dessert is a whispered promise of sweetness,like the tender moments we
+                                share in silence."</b></p>
+                    </div>
+                </li>
+                <li class="menu-item">
+                    <img src="strawberry1.png" alt="The Sweet Straw" class="menu-iamge" height="290px">
+                    <div class="menu-details">
+                        <h3 class="name">The Sweet Straw</h3>
+                        <p class="text"><b>"Sweet Like a First Kiss–That soft, melt-in-your-mouth sweetness feels just
+                                like falling in love."</b></p>
+                </li>
+        </div>
+        </ul>
+        </div>
+    </section>
+    <!--Testimonials-->
+    <section class="testimonials-section" id="Testimonials">
+        <h2 class="section-title">Testimonials</h2>
+        <div class="section-content">
+            <div class="slider-container swiper">
+                <div class="slider-wrapper">
+                    <ul class="testimonials-list swiper-wrapper">
+                        <li class="testimonial swiper-slide">
+                            <img src="user-1.jpg" alt="User" class="user-image">
+                            <h3 class="name">Sarah Johnson</h3>
+                            <i style="color: black;" class="feedback">Loved the French roast.Perfectly balanced and
+                                rich.Will order again!</i>
+                        </li>
+                        <li class="testimonial swiper-slide">
+                            <img src="user-2.jpg" alt="User" class="user-image">
+                            <h3 class="name">Justin Bieber</h3>
+                            <i style="color: black;" class="feedback">"Great espersso blend! Smooth and bold
+                                flavour.Fast shipping tool!"</i>
+                        </li>
+                        <li class="testimonial swiper-slide">
+                            <img src="user-3.jpg" alt="User" class="user-image">
+                            <h3 class="name">Micheal Brown</h3>
+                            <i style="color: black;" class="feedback">"Fantastic mocha flavour.Fresh and aromatic.Quick
+                                shipping!"</i>
+                        </li>
+                        <li class="testimonial swiper-slide">
+                            <img src="user-4.jpg" alt="User" class="user-image">
+                            <h3 class="name">Emily Harris</h3>
+                            <i style="color: black;" class="feedback">"Excellent quality! Fresh beans and quick
+                                delivery.Highly recommend."</i>
+                        </li>
+                        <li class="testimonial swiper-slide">
+                            <img src="user-5.jpg" alt="User" class="user-image">
+                            <h3 class="name">Thomsan Deo</h3>
+                            <i style="color: black;" class="feedback">"Best decaf i've tried! Smooth and
+                                flavourful.Arrived promptly."</i>
+                        </li>
+                    </ul>
+
+                    <div class="swiper-pagination"></div>
+                    <div class=" swiper-slide-button swiper-button-prev"></div>
+                    <div class="swiper-slide-button swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Gallery Section-->
+    <section class="gallery-section">
+        <h2 class="section-title">Gallery</h2>
+        <div class="section-content">
+            <ul class="gallery-list">
+                <li class="gallery-item">
+                    <img src="gallery-1.png.jpg" alt="Gallery" class="gallery-image">
+                </li>
+                <li class="gallery-item">
+                    <img src="gallery-2.jpg" alt="Gallery" class="gallery-image">
+                </li>
+                <li class="gallery-item">
+                    <img src="gallery-3.jpg" alt="Gallery" class="gallery-image">
+                </li>
+                <li class="gallery-item">
+                    <img src="gallery-4.jpg" alt="Gallery" class="gallery-image">
+                </li>
+                <li class="gallery-item">
+                    <img src="gallery-5.jpg" alt="Gallery" class="gallery-image">
+                </li>
+                <li class="gallery-item">
+                    <img src="gallery-6.jpg" alt="Gallery" class="gallery-image">
+                </li>
+                <li class="gallery-item">
+                    <img src="https://cdn.pixabay.com/photo/2018/10/14/18/29/meatloaf-3747129_1280.jpg" alt="Gallery"
+                        class="gallery-image">
+                </li>
+                <li class="gallery-item">
+                    <img src="https://cdn.pixabay.com/photo/2024/02/21/06/48/ai-generated-8586854_1280.png"
+                        alt="Gallery" class="gallery-image">
+                </li>
+                <li class="gallery-item">
+                    <img src="Macchiato.jpg" alt="Gallery" class="gallery-image">
+                </li>
+                <li class="gallery-item">
+                    <img src="https://cdn.pixabay.com/photo/2023/12/18/14/10/ai-generated-8456146_1280.jpg"
+                        alt="Gallery" class="gallery-image">
+                </li>
+                <li class="gallery-item">
+                    <img src="https://cdn.pixabay.com/photo/2024/02/15/09/30/grilled-chicken-8575043_960_720.png"
+                        alt="Gallery" class="gallery-image">
+                </li>
+                <li class="gallery-item">
+                    <img src="https://cdn.pixabay.com/photo/2018/07/14/21/30/club-sandwich-3538455_1280.jpg"
+                        alt="Gallery" class="gallery-image">
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!--Products section-->
+    <section class="products" id="Products">
+        <h2 class="section-title">Our Products</h2>
+        <div class="box-container">
+            <div class="box">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="product.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Presto Coffee Bags</h3>
+                    <p><span>Single-origin beans from Papua New Guinea. Smooth body with hints of cocoa and nuts.</span>
+                    </p>
+                    <div class="stars">
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star-half-alt"></I>
+                    </div>
+                    <div class="price">$15.99<span>$20.99 </span></div>
+                    <button class="buy-now">Order Now</button>
+                </div>
+            </div>
+            <div class="box">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="product1.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Cafe Ground Coffee</h3>
+                    <p><span>A bold and rich blend, perfect for early mornings. Packed fresh to retain aroma and
+                            flavor.</span></p>
+                    <div class="stars">
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star-half-alt"></I>
+                    </div>
+                    <div class="price">$17.99<span>$25.99 </span></div>
+                    <button class="buy-now">Order Now</button>
+
+                </div>
+            </div>
+            <div class="box">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="product4.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Rufino Coffee Packs</h3>
+                    <p><span>A premium roasted pack for true coffee lovers. Balanced, aromatic, and beautifully
+                            packed.</span></p>
+                    <div class="stars">
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star-half-alt"></I>
+                    </div>
+                    <div class="price">$35.99<span>$40.99 </span></div>
+                    <button class="buy-now">Order Now</button>
+
+                </div>
+            </div>
+            <div class="box">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="product3.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>7. Vanilla Cream Brew</h3>
+                    <p><span>A smooth coffee with a creamy vanilla touch. Light, sweet, and satisfying.</span></p>
+                    <div class="stars">
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star-half-alt"></I>
+                    </div>
+                    <div class="price">$15.99<span>$20.99 </span></div>
+                    <button class="buy-now">Order Now</button>
+
+                </div>
+            </div>
+            <div class="box">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="product2.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Espresso Intenso Blend</h3>
+                    <p><span>Dark roasted beans for a bold, intense espresso shot. Ideal for strong coffee
+                            lovers.</span></p>
+                    <div class="stars">
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star-half-alt"></I>
+                    </div>
+                    <div class="price">$15.99<span>$20.99 </span></div>
+                    <button class="buy-now">Order Now</button>
+
+                </div>
+            </div>
+            <div class="box">
+                <div class="icons">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-eye"></a>
+                </div>
+                <div class="image">
+                    <img src="product5.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h3>Hazelnut Heaven Coffee</h3>
+                    <p><span>Medium roast with a delightful hazelnut twist. Perfect for cozy evenings.</span></p>
+                    <div class="stars">
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star"></I>
+                        <I class="fas fa-star-half-alt"></I>
+                    </div>
+                    <div class="price">$15.99<span>$20.99 </span></div>
+                    <button class="buy-now">Order Now</button>
+
+                </div>
+            </div>
+            <div class="filter-bar">
+                <label for="sort">Sort by:</label>
+                <select id="sort">
+                    <option value="default">Default</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Top Rated</option>
+                </select>
+            </div>
+            <div class="product-card">
+                <img src="product6.jpg" alt="Presto Coffee">
+                <div>
+                    <h2> Coffee Bean Shop</h2>
+                    <p><strong>Price:</strong>Price: $24.99 → $18.99</p>
+                    <p><strong>Description:</strong>Coffee Bean Shop's signature blend offers a bold, aromatic
+                        experience crafted from handpicked premium beans</p>
+                    <p><strong>Origin:</strong> Blend (South America + Africa)</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="product7.jpg" alt="Arabica Coffee">
+                <div>
+                    <h2>Arabica Coffee Bags</h2>
+                    <p><strong>Price:</strong> Price: $22.99 → $16.49</p>
+                    <p><strong>Description:</strong> Arabica Coffee Bags offer a smooth, mild flavor with low acidity
+                        and a hint of sweetness.</p>
+                    <p><strong>Origin:</strong> Ethopia / Colombia (commonly used for Arabica)</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--contact Section-->
+    <section class="contact-section" id="Contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="section-content">
+            <ul class="contact-ifo-list">
+                <li class="contact-info">
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                    <p>123 Panchakki Do Nahariya,Haldwani Nainital 98765</p>
+                </li>
+                <li class="contact-info">
+                    <i class="fa-regular fa-envelope"></i>
+                    <p>tanujabisht0149@gmail.com</p>
+                </li>
+                <li class="contact-info">
+                    <i class="fa-solid fa-phone"></i>
+                    <p>(123)-7505734381</p>
+                </li>
+                <li class="contact-info">
+                    <i class="fa-regular fa-clock"></i>
+                    <p>Monday-Friday:9:00 AM - 5:00 PM</p>
+                </li>
+                <li class="contact-info">
+                    <i class="fa-regular fa-clock"></i>
+                    <p>Saturday:10:00 AM -3:00PM</p>
+                </li>
+                <li class="contact-info">
+                    <i class="fa-regular fa-clock"></i>
+                    <p>Sunday:closed</p>
+                </li>
+                <li class="contact-info">
+                    <i class="fa-solid fa-globe"></i>
+                    <p>www.webdevelopemnt.com</p>
+                </li>
+            </ul>
+            <form action="#" class="contact-form">
+                <input type="text" placeholder="Your Name" class="form-input" required>
+                <input type="email" placeholder="Your email id" class="form-input" required>
+                <textarea placeholder="Your Message" class="form-input" required></textarea>
+                <button class="submit-button">Submit</button>
+            </form>
+        </div>
+    </section>
+    <!--footer Section-->
+    <footer class="footer-section">
+        <div class="section-content">
+            <p class="copyright-text">@ 2025 Coffee Shop</p>
+            <div class="social-link-list">
+                <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <div class="policy-text">
+                <a href="#" class="policy-link">Private Policy</a>
+                <span class="separator"></span>
+                <a href="#" class="policy-link">Refund Policy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
