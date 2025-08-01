@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sweet Slice Cakes</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Reset & base */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Montserrat", sans-serif;
+      }
+      body {
+        background: #ecc8d4;
+        color: #333;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* Navbar */
+      nav {
+        background: #ff6699;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .logo {
+        font-family: "Pacifico", cursive;
+        font-size: 1.8rem;
+        color: #fff;
+        letter-spacing: 2px;
+        cursor: pointer;
+        /* user-select: none; */
+        transition: transform 0.3s ease;
+      }
+      .logo:hover {
+        transform: scale(1.1) rotate(-5deg);
+        color: #fff8f0;
+      }
+      ul.nav-links {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+      }
+      ul.nav-links li a {
+        color: #fff;
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 8px 12px;
+        border-radius: 6px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        display: inline-block;
+      }
+      ul.nav-links li a:hover,
+      ul.nav-links li a.active {
+        background: #fff8f0;
+        color: #ff6699;
+        transform: scale(1.1);
+        box-shadow: 0 0 10px #ff6699;
+      }
+
+      /* Responsive Navbar - Hamburger */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+      }
+      .hamburger div {
+        width: 25px;
+        height: 3px;
+        background: #fff;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+      @media (max-width: 768px) {
+        ul.nav-links {
+          position: fixed;
+          top: 60px;
+          right: -100%;
+          background: #ff6699;
+          height: 100vh;
+          width: 200px;
+          flex-direction: column;
+          align-items: center;
+          padding-top: 50px;
+          gap: 20px;
+          transition: right 0.3s ease;
+        }
+        ul.nav-links.active {
+          right: 0;
+        }
+        .hamburger {
+          display: flex;
+        }
+      }
+
+      /* Slider */
+      .slider {
+        position: relative;
+        max-width: 100%;
+        height: 60vh;
+        overflow: hidden;
+        border-radius: 15px;
+        margin: 30px auto;
+        max-width: 1000px;
+        box-shadow: 0 10px 20px rgba(255, 102, 153, 0.3);
+      }
+      .slides {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s ease-in-out;
+      }
+      .slide {
+        width: 100%;
+        flex-shrink: 0;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        border-radius: 15px;
+      }
+      .slide-content {
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+        background: rgba(255, 255, 255, 0.85);
+        padding: 20px 30px;
+        border-radius: 12px;
+        color: #ff3366;
+        font-weight: 700;
+        font-size: 2rem;
+        box-shadow: 0 5px 15px rgba(255, 102, 153, 0.4);
+        /* user-select: none; */
+        animation: fadeInUp 1s ease forwards;
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      /* Slider Controls */
+      .slider-controls {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+        padding: 0 20px;
+        pointer-events: none;
+      }
+      .slider-controls button {
+        background: rgba(255, 102, 153, 0.7);
+        border: none;
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 10px 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        pointer-events: auto;
+        transition: background-color 0.3s ease;
+        /* user-select: none; */
+        box-shadow: 0 0 10px rgba(255, 102, 153, 0.5);
+      }
+      .slider-controls button:hover {
+        background: #ff3366;
+        box-shadow: 0 0 20px #ff3366;
+      }
+
+      /* Sections */
+      section {
+        padding: 60px 20px;
+        max-width: 1000px;
+        margin: auto;
+      }
+      section h2 {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 2.5rem;
+        color: #ff3366;
+        text-shadow: 1px 1px 5px #ff99bb;
+      }
+
+      /* About Section */
+
+      #about .story {
+        font-size: 1.1rem;
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 30px;
+        /* user-select: none; */
+      }
+      #about .about-images {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      #about .about-images img {
+        width: 280px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(255, 102, 153, 0.2);
+        cursor: default;
+        transition: transform 0.4s ease;
+      }
+      #about .about-images img:hover {
+        transform: scale(1.05) rotate(3deg);
+        box-shadow: 0 10px 25px rgba(255, 102, 153, 0.5);
+      }
+
+      /* Menu Section */
+      #menu .menu-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+      .menu-card {
+        background: #fff0f6;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(255, 102, 153, 0.2);
+        padding: 20px;
+        text-align: center;
+        /* user-select: none; */
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
+      .menu-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 30px rgba(255, 102, 153, 0.4);
+      }
+      .menu-card img {
+        width: 100%;
+        height: 180px;
+        border-radius: 15px;
+        object-fit: cover;
+        margin-bottom: 15px;
+      }
+      .menu-card h3 {
+        color: #ff3366;
+        margin-bottom: 8px;
+        font-weight: 700;
+      }
+      .menu-card p.price {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #ff6699;
+        margin-bottom: 15px;
+      }
+      .menu-card p.desc {
+        font-size: 0.95rem;
+        color: #555;
+      }
+
+      /* Gallery */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+      .gallery-grid img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(255, 102, 153, 0.2);
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
+      .gallery-grid img:hover {
+        transform: scale(1.05) rotate(2deg);
+        box-shadow: 0 10px 25px rgba(255, 102, 153, 0.5);
+      }
+
+      /* Blog */
+      .blog-section {
+        background-color: #fffefc;
+        padding: 60px 20px;
+        text-align: center;
+        animation: fadeIn 2s ease-in-out;
+      }
+
+      .blog-section h2 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        color: #b84f4f;
+        font-family: "Pacifico", cursive;
+      }
+
+      .blog-intro {
+        font-size: 1.1em;
+        color: #444;
+        margin-bottom: 40px;
+      }
+
+      .blog-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+      }
+
+      .blog-card {
+        background: #fff;
+        width: 300px;
+        border-radius: 15px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        animation: slideUp 1.2s ease forwards;
+      }
+
+      .blog-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      }
+
+      .blog-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: filter 0.3s ease;
+      }
+
+      .blog-card:hover img {
+        filter: brightness(0.85);
+      }
+
+      .blog-content {
+        padding: 20px;
+      }
+
+      .blog-content h3 {
+        font-size: 1.2em;
+        color: #b84f4f;
+        margin-bottom: 10px;
+      }
+
+      .blog-content p {
+        font-size: 0.95em;
+        color: #666;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .blog-grid {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .blog-card {
+          width: 90%;
+        }
+      }
+
+      /* Review Section */
+
+      .review {
+        padding: 60px 20px;
+        background-color: #fff8f5;
+        text-align: center;
+      }
+
+      .review h2 {
+        font-size: 2.5rem;
+        color: #e91e63;
+        margin-bottom: 40px;
+        font-family: "Pacifico", cursive;
+      }
+
+      .review-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+      }
+
+      .review-card {
+        background-color: white;
+        padding: 20px;
+        border-radius: 20px;
+        max-width: 300px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .review-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .review-card img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 15px;
+        border: 3px solid #e91e63;
+      }
+
+      .review-card h3 {
+        font-size: 1.2rem;
+        margin: 10px 0 8px;
+        color: #444;
+      }
+
+      .review-card p {
+        font-size: 0.95rem;
+        color: #666;
+        font-style: italic;
+      }
+
+      /* Order form */
+      form.order-form {
+        background: #fff0f6;
+        background-image: url(cake.jpg);
+        padding: 30px 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(255, 102, 153, 0.2);
+        max-width: 600px;
+        margin: auto;
+      }
+      form.order-form label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #ff3366;
+      }
+      form.order-form input,
+      form.order-form select,
+      form.order-form textarea {
+        width: 100%;
+        padding: 10px 15px;
+        margin-bottom: 20px;
+        border: 2px solid #ff99bb;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+        resize: vertical;
+        font-family: inherit;
+      }
+      form.order-form input:focus,
+      form.order-form select:focus,
+      form.order-form textarea:focus {
+        outline: none;
+        border-color: #ff3366;
+        box-shadow: 0 0 8px #ff3366;
+      }
+      form.order-form button {
+        background: #ff6699;
+        border: none;
+        color: #fff;
+        font-weight: 700;
+        font-size: 1.2rem;
+        padding: 12px 0;
+        width: 100%;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        /* user-select: none; */
+      }
+      form.order-form button:hover {
+        background: #ff3366;
+        box-shadow: 0 0 15px #ff3366;
+        transform: scale(1.05);
+      }
+
+      img {
+        max-width: 100%;
+        width: 400px;
+        border-radius: 16px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      img:hover {
+        transform: scale(1.05);
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9rem;
+        color: #ff6699;
+        /* user-select: none; */
+      }
+
+      /* Responsive tweaks */
+      @media (max-width: 480px) {
+        #about .about-images img,
+        .menu-card img {
+          width: 100%;
+          height: auto;
+        }
+        .slider {
+          height: 40vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo" tabindex="0" aria-label="Sweet Slice Cakes Logo">
+        Sweet Slice
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#review">Reviews</a></li>
+        <li><a href="#order">Order</a></li>
+      </ul>
+      <div
+        class="hamburger"
+        id="hamburger"
+        aria-label="Toggle navigation menu"
+        tabindex="0"
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+
+    <!-- Home Slider -->
+    <section id="home" aria-label="Home section">
+      <div class="slider" aria-label="Cake image slider">
+        <div class="slides" id="slides">
+          <div
+            class="slide"
+            style="background-image: url('cupcake.jpg')"
+            aria-label="Chocolate cake"
+          >
+            <div class="slide-content">Delicious Chocolate Cake</div>
+          </div>
+          <div
+            class="slide"
+            style="background-image: url('c2.jpg')"
+            aria-label="Strawberry cake"
+          >
+            <div class="slide-content">Fresh Strawberry Delight</div>
+          </div>
+          <div
+            class="slide"
+            style="background-image: url('c3.jpg')"
+            aria-label="Vanilla cake"
+          >
+            <div class="slide-content">Classic Vanilla Slice</div>
+          </div>
+        </div>
+        <div class="slider-controls">
+          <button id="prev" aria-label="Previous slide">&#10094;</button>
+          <button id="next" aria-label="Next slide">&#10095;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <section id="about" tabindex="0" aria-label="About us section">
+      <h2>About Us</h2>
+      <p class="story">
+        At Sweet Slice Cakes, every cake tells a story. Born from a passion for
+        baking and a love for creating joy, our bakery started as a small family
+        venture. Today, we blend tradition with creativity, offering cakes that
+        are as beautiful as they are delicious. From classic flavors to
+        innovative designs, we craft each cake with care and dedication, making
+        your special moments unforgettable.
+      </p>
+      <div class="about-images" aria-label="About us images">
+        <img
+          src="https://media.istockphoto.com/id/949890436/photo/smiling-male-shop-assistant-arranging-fresh-pastry-in-supermarket.webp?a=1&b=1&s=612x612&w=0&k=20&c=dDX3qLaN_lg9F4nj_qxhL4F4Kw4xtQPmG0vYgOk_BKY="
+          alt="Cupcakes on stand"
+        />
+        <img
+          src="https://plus.unsplash.com/premium_photo-1665669263531-cdcbe18e7fe4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YmFrZXJ5fGVufDB8fDB8fHww"
+          alt="Decorated cake with roses"
+        />
+        <img
+          src="https://media.istockphoto.com/id/2192643401/photo/cafe-staff-taking-chocolate-cake-with-pretzels-and-whipped-cream-out-from-fridge.jpg?s=612x612&w=0&k=20&c=u_d_e-63LOCtudD4NbJfSXmP5Es6f6I3MyGAwT-w2kc="
+          alt="Chocolate layered cake"
+        />
+      </div>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu" tabindex="0" aria-label="Menu section">
+      <h2>Our Menu</h2>
+      <div class="menu-cards" aria-label="Cake menu cards">
+        <div class="menu-card" tabindex="0">
+          <img
+            src="https://media.istockphoto.com/id/1143548242/photo/woman-making-cakes-in-cake-manufacture.webp?a=1&b=1&s=612x612&w=0&k=20&c=ZuLsvomfJydGjMViJZKgMJ8__-eTYrGlU8D9mPqJYSA="
+            alt="Chocolate cake"
+          />
+          <h3>Chocolate Cake</h3>
+          <p class="price">₹ 750</p>
+          <p class="desc">
+            Rich and moist chocolate cake with creamy ganache topping.
+          </p>
+        </div>
+        <div class="menu-card" tabindex="0">
+          <img
+            src="https://images.unsplash.com/photo-1624975964661-4999f124a4c3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dmFuaWxsYSUyMGNha2V8ZW58MHx8MHx8fDA%3D"
+            alt="Vanilla cake"
+          />
+          <h3>Vanilla Cake</h3>
+          <p class="price">₹ 700</p>
+          <p class="desc">
+            Classic vanilla cake with smooth buttercream frosting.
+          </p>
+        </div>
+        <div class="menu-card" tabindex="0">
+          <img
+            src="https://media.istockphoto.com/id/683024046/photo/berry-layer-cake-with-whipped-cream.webp?a=1&b=1&s=612x612&w=0&k=20&c=QlW4J6-PCMZOHcyV5yvpu_kiCESAcTJl1K8KIOGGPdQ="
+            alt="Strawberry cake"
+          />
+          <h3>Strawberry Cake</h3>
+          <p class="price">₹ 800</p>
+          <p class="desc">
+            Fresh strawberry cake with layers of whipped cream.
+          </p>
+        </div>
+        <div class="menu-card" tabindex="0">
+          <img
+            src="https://media.istockphoto.com/id/1174364953/photo/its-not-a-wedding-without-an-extravagantly-beautiful-cake.webp?a=1&b=1&s=612x612&w=0&k=20&c=UsrtvC1P-zIlerTXd4LMAJ215YhU2gF-DE-gjhRDePY="
+            alt="Custom cake"
+          />
+          <h3>Custom Design</h3>
+          <p class="price">₹ 1200+</p>
+          <p class="desc">
+            Personalized cakes designed just for your special occasion.
+          </p>
+        </div>
+        <div class="menu-card" tabindex="0">
+          <img
+            src="https://media.istockphoto.com/id/1293840244/photo/top-view-rich-plum-nuts-cake.webp?a=1&b=1&s=612x612&w=0&k=20&c=e6eaUb4ICfs35-JKaCT8xM8wC79knAuXqTf_Pqub9_o="
+            alt="Chocolate Brownie cake"
+          />
+          <h3>Chocolate Brownie</h3>
+          <p class="price">₹ 1200+</p>
+          <p class="desc">
+            Personalized cakes designed just for your special occasion.
+          </p>
+        </div>
+        <div class="menu-card" tabindex="0">
+          <img
+            src="https://images.unsplash.com/photo-1722550376570-e22bc6668cbe?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGJhbmFuYSUyMGNha2V8ZW58MHx8MHx8fDA%3D"
+            alt="Banana cake"
+          />
+          <h3>Banana Cake</h3>
+          <p class="price">₹ 1200+</p>
+          <p class="desc">
+            Personalized cakes designed just for your special occasion.
+          </p>
+        </div>
+        <div class="menu-card" tabindex="0">
+          <img
+            src="https://images.unsplash.com/photo-1695275667867-260a09354d5c?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Angel cake"
+          />
+          <h3>Angel Cake</h3>
+          <p class="price">₹ 1200+</p>
+          <p class="desc">
+            Personalized cakes designed just for your special occasion.
+          </p>
+        </div>
+        <div class="menu-card" tabindex="0">
+          <img
+            src="https://images.unsplash.com/photo-1666181100635-b3cd74596d65?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNvY29udXQlMjBjYWtlfGVufDB8fDB8fHww"
+            alt="Coconut cake"
+          />
+          <h3>Coconut Cake</h3>
+          <p class="price">₹ 1200+</p>
+          <p class="desc">
+            Personalized cakes designed just for your special occasion.
+          </p>
+        </div>
+        <div class="menu-card" tabindex="0">
+          <img
+            src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y3VwJTIwY2FrZXxlbnwwfHwwfHx8MA%3D%3D"
+            alt="Cupcake"
+          />
+          <h3>Cupcake</h3>
+          <p class="price">₹ 1200+</p>
+          <p class="desc">
+            Personalized cakes designed just for your special occasion.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" tabindex="0" aria-label="Gallery section">
+      <h2>Gallery</h2>
+      <div class="gallery-grid" aria-label="Cake gallery images">
+        <img
+          src="https://images.unsplash.com/photo-1464347744102-11db6282f854?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGRlbGljaW91cyUyMGNha2VzJTIwaW1hZ2VzfGVufDB8fDB8fHww"
+          alt="Cupcakes on stand"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1627385006598-6b7f89f20876?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZGVsaWNpb3VzJTIwY2FrZXMlMjBpbWFnZXN8ZW58MHx8MHx8fDA%3D"
+          alt="Decorated cake with roses"
+        />
+        <img
+          src="https://plus.unsplash.com/premium_photo-1716928661182-68ccfe1dc120?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZGVjb3JhdGVkJTIwY2FrZXxlbnwwfHwwfHx8MA%3D%3D"
+          alt="Chocolate layered cake"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1727419912998-6dee8ee244f4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8ZGVjb3JhdGVkJTIwY2FrZXxlbnwwfHwwfHx8MA%3D%3D"
+          alt="Strawberry cake"
+        />
+        <img
+          src="https://media.istockphoto.com/id/1005897744/photo/girl-chef-cooks-confectioner-decorates-cake-with-forest-berries-concept-making-without.webp?a=1&b=1&s=612x612&w=0&k=20&c=PdB7GN-fci06r7nbYnNQ03XqBrEBhpdjr_xS0AhHSng="
+          alt="Birthday cake with candles"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1695904255931-78b11e1cb049?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGVjb3JhdGVkJTIwY2FrZXxlbnwwfHwwfHx8MA%3D%3D"
+          alt="Wedding cake with flowers"
+        />
+        <!-- More images -->
+        <img
+          src="https://images.unsplash.com/photo-1552683494-b09162fefb57?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGRlY29yYXRlZCUyMGNha2V8ZW58MHx8MHx8fDA%3D"
+          alt="Macarons and cake"
+        />
+        <img
+          src="https://media.istockphoto.com/id/497959594/photo/fresh-cakes.webp?a=1&b=1&s=612x612&w=0&k=20&c=5sHm3f8aZRX7Y5C4xcEwQmsYYghtS8GLMz3xygCA_Kk="
+          alt="Cupcakes with berries"
+        />
+        <img
+          src="https://media.istockphoto.com/id/2061222263/photo/orange-drip-cake.webp?a=1&b=1&s=612x612&w=0&k=20&c=GqK9oFIOkPm6C9Yer5lj25LJ4FSamNk8G8IPKIfzXNY="
+          alt="Pink frosted cake"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1582391123539-3b4fec0c2232?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGRlY29yYXRlZCUyMGNha2V8ZW58MHx8MHx8fDA%3D"
+          alt="Chocolate cake with nuts"
+        />
+        <!-- <img src="Choco.jpg" />
+        <img src="blue.jpg" /> -->
+      </div>
+    </section>
+
+    <!-- Blog -->
+    <!-- <section id="blog" tabindex="0" aria-label="Blog section">
+    <h2>Blog</h2>
+    <div class="blog-content" aria-live="polite">
+
+      <p><strong>Welcome to Sweet Slice's Blog!</strong></p>
+      <p>Here, we share our passion for baking, decorating tips, delicious recipes, and stories behind some of our most popular cakes. Whether you’re a seasoned baker or just love indulging in sweets, there’s something for everyone!</p>
+      <h3>The Art of Cake Making</h3>
+      <p>Making a cake is more than just mixing ingredients; it’s an art. From choosing the freshest ingredients to the final decorative touches, each step requires patience and love. Our bakers take pride in ensuring every slice tastes like a slice of happiness.</p>
+      <h3>Decorating Tips from Our Experts</h3>
+      <p>Learn how to create stunning cake designs with simple tools and techniques. From buttercream roses to fondant decorations, we guide you through easy steps to impress your guests at any celebration.</p>
+      <h3>Seasonal Flavors and Trends</h3>
+      <p>We love to experiment with seasonal fruits and trending flavors. This year, try our pumpkin spice cake or classic lemon drizzle to bring freshness to your table. Stay tuned for monthly recipes!</p>
+      <p>Subscribe to our newsletter to get fresh cake inspiration delivered straight to your inbox.</p>
+    </div>
+  </section> -->
+
+    <section id="blog" class="blog-section">
+      <h2>Our Vlog & Stories</h2>
+      <p class="blog-intro">
+        Explore the behind-the-scenes magic, cake-making tips, and our sweet
+        stories.
+      </p>
+
+      <div class="blog-grid">
+        <div class="blog-card">
+          <img
+            src="https://media.istockphoto.com/id/645363392/photo/managing-the-business-online.jpg?b=1&s=612x612&w=0&k=20&c=m36nb2zJr8WcP2qOmH_Vk3Ur7S20rgVeDyfWWhLO7kY="
+            alt="Blog 1"
+          />
+          <div class="blog-content">
+            <h3>Decorating Tips for Beginners</h3>
+            <p>
+              Learn simple yet stunning cake decorating hacks you can try at
+              home.
+            </p>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <img
+            src="https://images.pexels.com/photos/1995010/pexels-photo-1995010.jpeg"
+            alt="Blog 2"
+          />
+          <div class="blog-content">
+            <h3>Behind the Oven</h3>
+            <p>
+              A peek into our kitchen where creativity and baking magic happens
+              daily.
+            </p>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <img
+            src="https://images.pexels.com/photos/1739748/pexels-photo-1739748.jpeg"
+            alt="Blog 3"
+          />
+          <div class="blog-content">
+            <h3>Customer Favorites</h3>
+            <p>
+              These cakes became legends. Here’s what our customers love the
+              most!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="review" id="review">
+      <h2>Customer Reviews</h2>
+      <div class="review-grid">
+        <div class="review-card">
+          <img src="vanshu.jpg" alt="Customer 1" />
+          <h3>Vanshika Pathak</h3>
+          <p>
+            “The Red Velvet cake was heavenly! Delivered on time, and
+            beautifully decorated. Highly recommended!”
+          </p>
+        </div>
+
+        <div class="review-card">
+          <img src="dumbo1.jpg" alt="Customer 2" />
+          <h3>Anjali Adhikari</h3>
+          <p>
+            “I ordered a chocolate truffle for my birthday. It was super moist
+            and delicious. Excellent service!”
+          </p>
+        </div>
+
+        <div class="review-card">
+          <img src="adi.jpg" alt="Customer 3" />
+          <h3>Aaditya Chaudhary</h3>
+          <p>
+            “Such a lovely cake! Great flavors, lovely design. I’m going to
+            order again soon!”
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Order -->
+    <section id="order" tabindex="0" aria-label="Order your cake section">
+      <h2>Order Your Cake</h2>
+      <form class="order-form" aria-label="Order form">
+        <label for="name">Full Name *</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your full name"
+          required
+        />
+
+        <label for="email">Email Address *</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="you@example.com"
+          required
+        />
+
+        <label for="phone">Phone Number *</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="+91 1234567890"
+          required
+          pattern="[0-9+ ]{7,15}"
+        />
+
+        <label for="cake-type">Type of Cake *</label>
+        <select id="cake-type" name="cake-type" required>
+          <option value="" disabled selected>Select a cake</option>
+          <option value="chocolate">Chocolate</option>
+          <option value="vanilla">Vanilla</option>
+          <option value="strawberry">Strawberry</option>
+          <option value="custom">Custom Design</option>
+        </select>
+
+        <label for="message">Additional Details</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          placeholder="Tell us about your preferences or event"
+        ></textarea>
+
+        <button type="submit" aria-label="Submit your cake order">
+          Place Order
+        </button>
+      </form>
+    </section>
+
+    <footer>&copy; 2025 Sweet Slice Cakes | Made with ❤️</footer>
+
+    <script>
+      // Hamburger menu toggle
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        hamburger.classList.toggle("active");
+      });
+      hamburger.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          navLinks.classList.toggle("active");
+          hamburger.classList.toggle("active");
+        }
+      });
+
+      // Slider functionality
+      const slides = document.getElementById("slides");
+      const prevBtn = document.getElementById("prev");
+      const nextBtn = document.getElementById("next");
+
+      let currentIndex = 0;
+      const totalSlides = slides.children.length;
+
+      function updateSlider() {
+        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+
+      prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateSlider();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlider();
+      });
+
+      // Auto slide every 5 seconds
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlider();
+      }, 5000);
+
+      // Navbar active link highlight on scroll
+      const sections = document.querySelectorAll("section");
+      const navLinksArr = document.querySelectorAll(".nav-links li a");
+
+      window.addEventListener("scroll", () => {
+        let scrollPos = window.scrollY + 150;
+        sections.forEach((section, index) => {
+          if (
+            scrollPos >= section.offsetTop &&
+            scrollPos < section.offsetTop + section.offsetHeight
+          ) {
+            navLinksArr.forEach((link) => link.classList.remove("active"));
+            navLinksArr[index].classList.add("active");
+          }
+        });
+      });
+
+      // Simple form submit handler to prevent actual submit for demo
+      const orderForm = document.querySelector(".order-form");
+      orderForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("Thank you for your order! We will contact you soon.");
+        orderForm.reset();
+      });
+    </script>
+  </body>
+</html
